@@ -9,14 +9,14 @@
 </template>
 <script>
 import HorizontalLinkList from '../molecules/HorizontalLinkList'
-import { routes } from '../../router/route'
+import links from '../../router/link'
 export default {
   components: {
     HorizontalLinkList
   },
   data() {
     return {
-      links: routes
+      links: links
     }
   }
 }

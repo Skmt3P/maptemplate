@@ -22,7 +22,7 @@
 import AppLink from '../atoms/AppLink'
 import AppLogo from '../atoms/AppLogo'
 import HorizontalLinkList from '../molecules/HorizontalLinkList'
-import { routes } from '../../router/route'
+import links from '../../router/link'
 export default {
   name: 'AppHeader',
   components: {
@@ -32,7 +32,7 @@ export default {
   },
   data() {
     return {
-      links: routes
+      links: links
     }
   }
 }

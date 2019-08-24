@@ -3,7 +3,7 @@
     <ul>
       <template v-for="link in links">
         <li :key="link.label">
-          <AppLink :label="link.name" :path="link.path" />
+          <AppLink :label="link.label" :path="link.path" />
         </li>
       </template>
     </ul>

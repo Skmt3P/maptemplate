@@ -6,7 +6,7 @@ export const routes = [
     component: Home
   },
   {
-    path: '/map',
+    path: '/map/:lat?/:lng?/:zoom?',
     name: 'map',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
