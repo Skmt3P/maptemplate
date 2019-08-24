@@ -35,16 +35,16 @@ export default {
 </script>
 <style lang="scss" scoped>
 .app-link {
-  color: #4fc08d;
+  color: $primary;
   text-decoration: none;
   margin: 0 4px 0 4px;
   &:hover {
     color: #fff;
-    background-color: #4fc08d;
+    background-color: $primary;
   }
 }
 .router-link-exact-active {
   margin-bottom: 4px;
-  border-bottom: 2px solid #4fc08d;
+  border-bottom: 2px solid $primary;
 }
 </style>
