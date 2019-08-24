@@ -52,5 +52,7 @@ export const dayIsValid = day => dayjs(day).isValid()
  * 日付を比較
  * @param {String} day1
  * @param {String} day2
+ * @example
+ * compareDate('2019-08-23','2019-08-24') // true
  */
-export const CompareDate = (day1, day2) => dayjs(day1).isBefore(day2)
+export const compareDate = (day1, day2) => dayjs(day1).isBefore(day2)
