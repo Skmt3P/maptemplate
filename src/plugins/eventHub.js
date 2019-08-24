@@ -17,6 +17,7 @@
  * },
  * methods: {
  *   getClick(){
+ *     // イベントを発行できる！
  *     console.log('click')
  *   }
  */
