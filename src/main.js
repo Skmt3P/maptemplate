@@ -6,6 +6,11 @@ import { store } from './store'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import vconfig from './plugins/config'
+import eventHub from './plugins/eventHub'
+
+Vue.use(vconfig)
+Vue.use(eventHub)
 
 library.add(faExternalLinkAlt)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
