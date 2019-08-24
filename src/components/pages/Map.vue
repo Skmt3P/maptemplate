@@ -13,6 +13,7 @@
       @bounds="boundsUpdated"
       @controlClick="controlClick"
       @markerClick="markerClick"
+      @mapReady="mapReady"
     ></app-map>
   </div>
 </template>
@@ -20,7 +21,7 @@
 import { latLng } from 'leaflet'
 import { createNamespacedHelpers } from 'vuex'
 import AppMap from '../organisms/AppMap'
-import { tileProviders, maxMinZoom } from '../../config/map'
+import { tileProviders, maxMinZoom, sampleMarkers } from '../../config/map'
 
 // store/mapのヘルパー作成
 const {
@@ -39,18 +40,28 @@ export default {
       maxZoom: maxMinZoom.maxZoom,
       minZoom: maxMinZoom.minZoom,
       bounds: {},
-      markers: []
+      markers: sampleMarkers
     }
   },
   computed: {
     ...mapGettersOfMaps(['latLngZoom']),
     zoomLevel() {
-      return this.latLngZoom.zoom ? this.latLngZoom.zoom : this.$config.zoom
+      const { zoom } = this.$route.params
+      if (zoom) {
+        return parseFloat(zoom)
+      } else {
+        return this.latLngZoom.zoom ? this.latLngZoom.zoom : this.$config.zoom
+      }
     },
     center() {
-      return this.latLngZoom.lat !== null && this.latLngZoom.lng !== null
-        ? latLng(this.latLngZoom.lat, this.latLngZoom.lng)
-        : latLng(this.$config.lat, this.$config.lng)
+      const { lat, lng } = this.$route.params
+      if ((lat, lng)) {
+        return latLng(parseFloat(lat), parseFloat(lng))
+      } else {
+        return this.latLngZoom.lat !== null && this.latLngZoom.lng !== null
+          ? latLng(this.latLngZoom.lat, this.latLngZoom.lng)
+          : latLng(this.$config.lat, this.$config.lng)
+      }
     }
   },
   methods: {
@@ -75,6 +86,9 @@ export default {
     },
     markerClick(marker) {
       console.log(marker)
+    },
+    mapReady() {
+      console.log('initmap')
     }
   }
 }

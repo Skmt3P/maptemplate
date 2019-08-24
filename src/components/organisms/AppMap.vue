@@ -182,6 +182,7 @@ export default {
       this.zoomUpdated(map.getZoom())
       this.centerUpdated(map.getCenter())
       this.boundsUpdated(map.getBounds())
+      this.$emit('mapReady')
     }
   }
 }
@@ -190,5 +191,15 @@ export default {
 #map {
   position: relative;
   height: 100%;
+}
+/deep/ .leaflet-control-container:after {
+  content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAA11AAANdQBXmXlCAAAAClJREFUKJFjYMAC/jMw/P/PwPAfmxwTNkF8YBBqYMTlOarZgBUM92AFAPM4CgrOWqaXAAAAAElFTkSuQmCC);
+  z-index: 1000;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 </style>
