@@ -49,6 +49,7 @@ export default {
   border-color: $primary;
   padding: 0.5em;
   box-shadow: 0.5px 0.5px;
+  cursor: pointer;
   :hover {
     color: #ffffff;
     background-color: $primary;
@@ -63,5 +64,6 @@ export default {
   padding: 6px 10px 6px 10px;
   border-radius: 20px;
   border-color: $primary;
+  cursor: pointer;
 }
 </style>

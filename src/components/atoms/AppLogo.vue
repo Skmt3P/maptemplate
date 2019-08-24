@@ -15,8 +15,8 @@ export default {
     logoStyle: {
       type: Object,
       default: () => ({
-        width: '150px',
-        height: '50px'
+        width: '100px',
+        height: '35px'
       })
     }
   }
