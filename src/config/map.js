@@ -12,6 +12,64 @@ export const tileProviders = [
     url: 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
     attribution:
       'Map data: &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+  },
+  {
+    name: '標準地図',
+    visible: false,
+    url: 'https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',
+    attribution:
+      "<a href='http://maps.gsi.go.jp/development/ichiran.html'>地理院タイル</a>"
+  },
+  {
+    name: '淡色地図',
+    visible: false,
+    url: 'https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png',
+    attribution:
+      "<a href='http://maps.gsi.go.jp/development/ichiran.html'>地理院タイル</a>"
+  },
+  {
+    name: '航空写真',
+    visible: false,
+    url: 'https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg',
+    attribution:
+      "<a href='http://maps.gsi.go.jp/development/ichiran.html'>地理院タイル</a>"
+  }
+]
+
+export const overlayTileProviders = [
+  {
+    name: '色別標高図',
+    visible: false,
+    url: 'https://cyberjapandata.gsi.go.jp/xyz/relief/{z}/{x}/{y}.png',
+    options: {
+      opacity: 0.7,
+      maxNativeZoom: 15,
+      attribution:
+        "<a href='http://maps.gsi.go.jp/development/ichiran.html'>地理院タイル</a>"
+    }
+  },
+  {
+    name: '陰影起伏図',
+    visible: false,
+    url: 'https://cyberjapandata.gsi.go.jp/xyz/hillshademap/{z}/{x}/{y}.png',
+    options: {
+      opacity: 0.5,
+      maxNativeZoom: 15,
+      attribution:
+        "<a href='http://maps.gsi.go.jp/development/ichiran.html'>地理院タイル</a>"
+    }
+  },
+  {
+    name: '国管理河川_洪水浸水想定区域',
+    visible: false,
+    url:
+      'https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_kuni_data/{z}/{x}/{y}.png',
+    options: {
+      opacity: 0.7,
+      maxNativeZoom: 15,
+      attribution:
+        "<a href='http://maps.gsi.go.jp/development/ichiran.html'>地理院タイル</a>"
+    }
   }
 ]
 

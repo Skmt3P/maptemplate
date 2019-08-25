@@ -8,6 +8,7 @@
       :minZoom="minZoom"
       :markers="markers"
       :tileProviders="tileProviders"
+      :overlayTileProviders="overlayTileProviders"
       @zoom="zoomUpdated"
       @center="centerUpdated"
       @bounds="boundsUpdated"
@@ -21,7 +22,12 @@
 import { latLng } from 'leaflet'
 import { createNamespacedHelpers } from 'vuex'
 import AppMap from '../organisms/AppMap'
-import { tileProviders, maxMinZoom, sampleMarkers } from '../../config/map'
+import {
+  tileProviders,
+  maxMinZoom,
+  sampleMarkers,
+  overlayTileProviders
+} from '../../config/map'
 
 // store/mapのヘルパー作成
 const {
@@ -36,11 +42,12 @@ export default {
   },
   data() {
     return {
-      tileProviders: tileProviders,
+      bounds: {},
+      markers: sampleMarkers,
       maxZoom: maxMinZoom.maxZoom,
       minZoom: maxMinZoom.minZoom,
-      bounds: {},
-      markers: sampleMarkers
+      tileProviders: tileProviders,
+      overlayTileProviders: overlayTileProviders
     }
   },
   computed: {

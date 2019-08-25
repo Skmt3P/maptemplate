@@ -15,7 +15,7 @@
     >
       <l-control-layers
         :position="layersPosition"
-        :collapsed="false"
+        :collapsed="true"
         :sort-layers="true"
       />
       <l-tile-layer
@@ -27,6 +27,21 @@
         :attribution="tileProvider.attribution"
         layer-type="base"
       />
+      <l-layer-group
+        v-for="overlay in overlayTileProviders"
+        :key="overlay.name"
+        :visible="overlay.visible"
+        :name="overlay.name"
+        layer-type="overlay"
+      >
+        <l-tile-layer
+          :name="overlay.name"
+          :visible="overlay.visible"
+          :url="overlay.url"
+          :options="overlay.options"
+          layer-type="overlay"
+        />
+      </l-layer-group>
       <l-control-zoom :position="zoomPosition" />
       <l-control-attribution
         :position="attributionPosition"
@@ -61,6 +76,7 @@ import {
   LPopup,
   LControl,
   LTileLayer,
+  LLayerGroup,
   LControlZoom,
   LControlScale,
   LControlLayers,
@@ -85,6 +101,7 @@ export default {
     LMarker,
     LControl,
     LTileLayer,
+    LLayerGroup,
     LControlZoom,
     LControlScale,
     LControlLayers,
@@ -126,6 +143,10 @@ export default {
     tileProviders: {
       type: Array,
       required: true
+    },
+    overlayTileProviders: {
+      type: Array,
+      default: () => []
     },
     zoomPosition: {
       type: String,
